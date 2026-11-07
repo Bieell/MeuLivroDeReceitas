@@ -4,14 +4,13 @@ using MyRecipeBook.Communication.Requests;
 
 namespace MyRecipeBook.Api.Controllers;
 
-[Route("api/[controller]")]
+[Route("[controller]")]
 [ApiController]
 public class UsersController : ControllerBase
 {
     [HttpPost]
-    public IActionResult Register([FromBody] RequestRegisterUserAccountJson request)
+    public IActionResult Register([FromBody] RequestRegisterUserAccountJson request, [FromServices] IRegisterUserAccountUseCase useCase)
     {
-        var useCase = new RegisterUserAccountUseCase();
         useCase.Execute(request);
         return Created();
     }
