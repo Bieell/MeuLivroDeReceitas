@@ -1,8 +1,9 @@
 ﻿using MyRecipeBook.Domain.Entities;
+using MyRecipeBook.Domain.Repositories.User;
 
 namespace MyRecipeBook.Infrastructure.DataAccess.Repositories;
 
-internal sealed class UserRepository
+internal sealed class UserRepository : IUserWriteOnlyRepository
 {
     private readonly MyRecipeBookDbContext _dbContext;
 
@@ -11,7 +12,5 @@ internal sealed class UserRepository
         _dbContext = dbContext;
     }
 
-    public async Task Add(User user) => await _dbContext.Users.AddAsync(user);
-
-
+    public async Task Add(User user) => await _dbContext.Users.AddAsync(user);]
 }
