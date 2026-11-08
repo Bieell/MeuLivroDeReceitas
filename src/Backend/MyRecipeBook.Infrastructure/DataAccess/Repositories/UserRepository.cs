@@ -12,5 +12,5 @@ internal sealed class UserRepository : IUserWriteOnlyRepository
         _dbContext = dbContext;
     }
 
-    public async Task Add(User user) => await _dbContext.Users.AddAsync(user);]
+    public async Task Add(User user) => await _dbContext.Users.AddAsync(user);
 }
